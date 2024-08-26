@@ -14,15 +14,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(mybenchmark mybenchmark.cc)
 
 # Include the benchmark library headers
-target_include_directories(mybenchmark PRIVATE C:/Users/Nikodem/Documents/GitHub/benchmark/include)
+target_include_directories(mybenchmark PRIVATE /home/benchmark/include)
 
 # Specify the path to the benchmark library
 # link_directories(C:/Users/Nikodem/Documents/GitHub/benchmark/build/src/Release)
 
 # Find the benchmark library
-find_library(BENCHMARK_LIB benchmark HINTS C:/Users/Nikodem/Documents/GitHub/benchmark/build/src/Release REQUIRED)
-
-option(CMAKE_USE_WIN32_THREADS_INIT "using WIN32 threads" ON)
+find_library(BENCHMARK_LIB benchmark HINTS /home/benchmark/build/src REQUIRED)
 
 # Link the benchmark library and pthread
-target_link_libraries(mybenchmark PRIVATE ${BENCHMARK_LIB} shlwapi)
+target_link_libraries(mybenchmark PRIVATE ${BENCHMARK_LIB} pthread)
