@@ -14,13 +14,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(mybenchmark mybenchmark.cc)
 
 # Include the benchmark library headers
-target_include_directories(mybenchmark PRIVATE /home/benchmark/include)
+target_include_directories(mybenchmark PRIVATE /home/nikodem/Documents/GitHub/benchmark/include)
 
 # Specify the path to the benchmark library
 # link_directories(C:/Users/Nikodem/Documents/GitHub/benchmark/build/src/Release)
 
 # Find the benchmark library
-find_library(BENCHMARK_LIB benchmark HINTS /home/benchmark/build/src REQUIRED)
+find_library(BENCHMARK_LIB benchmark HINTS /home/nikodem/Documents/GitHub/benchmark/build/src REQUIRED)
 
 # Link the benchmark library and pthread
 target_link_libraries(mybenchmark PRIVATE ${BENCHMARK_LIB} pthread)
