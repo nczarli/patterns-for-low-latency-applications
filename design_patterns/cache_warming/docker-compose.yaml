@@ -8,6 +8,8 @@ services:
         cd home && \
         mkdir nikodem && \
         cd nikodem && \
+        kdir Documents && \
+        cd Documents && \
         mkdir GitHub && \
         cd GitHub && \
         # Check out the benchmark library.
