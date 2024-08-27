@@ -17,6 +17,7 @@ Before you begin, ensure you have the following installed on your machine:
 - C++ 20
 - CMake 3.28.3
 - Make 4.3
+- Google Benchmark
 
 ## Setting Up the Environment
 
