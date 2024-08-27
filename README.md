@@ -62,3 +62,7 @@ The executable for the benchmark will be generated in the `build` directory.
 To run the benchmark for a specific pattern, use the following command within the pattern's `build` directory:
 ```bash
 ./mybenchmark
+```
+
+## Viewing the Results
+Benchmark results for each pattern are stored in a `results.md` file within the respective pattern's folder.
