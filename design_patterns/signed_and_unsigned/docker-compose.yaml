@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  cmake:
+    image: danger89/cmake
+    command: >
+      /bin/bash -c "
+        cd home && \
+        mkdir nikodem && \
+        cd nikodem && \
+        mkdir Documents && \
+        cd Documents && \
+        mkdir GitHub && \
+        cd GitHub && \
+        # Check out the benchmark library.
+        git clone https://github.com/google/benchmark.git && \
+        cd benchmark && \
+        # Make a build directory to place the build output.
+        cmake -E make_directory 'build' && \
+        # Generate build system files with cmake, and download any dependencies.
+        cmake -E chdir 'build' cmake -DBENCHMARK_DOWNLOAD_DEPENDENCIES=on -DCMAKE_BUILD_TYPE=Release ../ && \
+        # Build the library.
+        cmake --build 'build' --config Release && \
+        # Go back to the home directory and perform the next commands.
+        cd .. && \
+        git clone https://github.com/nczarli/patterns-for-low-latency-applications.git && \
+        cd patterns-for-low-latency-applications/design_patterns/cache_warming && \
+        mkdir build && \
+        cd build && \
+        cmake .. && \
+        make
+      "
